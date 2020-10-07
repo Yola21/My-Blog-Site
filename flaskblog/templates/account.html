@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block head %}
+  <style>
+    .container{
+      margin-bottom: 0.8rem;
+    }
+
+    .content-section{
+      box-shadow: 10px 20px 8px darkslategray;
+    }
+
+    .card{
+      border-top-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+      background-color:  rgb(120, 137, 231); 
+      box-shadow: 15px 20px 10px darkslategray;
+      width: 92%;
+    }
+
+    .card-title{
+      color: navy;
+    }
+
+    a{
+      color: navy;
+    }
+
+    small{
+      color: ghostwhite;
+    }
+
+    p{
+      color: blanchedalmond;
+    }
+
+    /* i{
+      padding: 0px 7px;
+      cursor: pointer;
+    } */
+  </style>
+{% endblock head %}
+
+
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ image_file }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ current_user.username }}</h2>
+          <p class="text-secondary">{{ current_user.email }}</p>
+        </div>
+      </div>
+
+      <form method="POST" action="" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Account Info</legend>
+              <div class="form-group">
+                  {{ form.username.label(class="form-control-label") }}
+
+                  {% if form.username.errors %}
+                      {{ form.username(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.username.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.username(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="form-group">
+                  {{ form.email.label(class="form-control-label") }}
+                  {% if form.email.errors %}
+                      {{ form.email(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.email.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.email(class="form-control form-control-lg") }}
+                  {% endif %}
+              </div>
+              <div class="form-group">
+                  {{ form.picture.label() }}
+                  {{ form.picture(class="form-control-file") }}
+                  {% if form.picture.errors %}
+                      {% for error in form.picture.errors %}
+                          <span class="text-danger">{{ error }}</span></br>
+                      {% endfor %}
+                  {% endif %}
+              </div>
+          </fieldset>
+          <div class="form-group">
+              {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+      </form>      
+    </div>   
+
+    <h1 class="mb-3">Total {{ posts.total }} posts!</h1>
+        {% for post in posts.items %}
+        <div class="container" style="display: flex;">
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-body">
+                  <h4 class="card-title"><a class="title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h4>
+                  <small>Posted on {{ post.date_posted.strftime('%A, %d %B %Y %I:%M %p') }}</small>
+                  <br>
+                  <br>
+                  <p class="card-text">{{ post.content }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-warning mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-warning mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+
+{% endblock content %}

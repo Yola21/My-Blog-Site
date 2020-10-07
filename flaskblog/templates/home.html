@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container" style="margin: 12rem 4rem; text-align: center;">
+    <div class="card" style="border-bottom-left-radius: 50px; border-top-right-radius: 50px; background-color:  rgb(120, 137, 231); box-shadow: 15px 20px 10px darkslategray;">
+        <div class="card-body" style="color: darkgreen;">
+            <h1 class="card-title">WELCOME PEEPS!📝</h1>
+            <hr class="w3-border-grey" style="margin:auto; width:40%;">
+            <br>
+            <p class="card-text" id="para">Welcome to my <strong><em> Blog Site!</em></strong> Thanks so much for stopping by. I am glad to have you on board! This is gonna be so excited to have a such an audience like you. Let me tell you one thing, not only you can explore new readings but also will get updates for new technologies and all similar stuff. So what are you waiting for? Get In. Don't worry, your contribution will be appreciated.😄</p>
+            <button class="btn btn-primary"><a href="{{url_for('posts.allpost') }} " style="text-decoration: none; color: inherit;">Join Now &raquo;</a></button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
