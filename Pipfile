@@ -6,10 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-<<<<<<< HEAD
 gunicorn = "==19.0.0"
-=======
->>>>>>> b84bd14e27190911c05e413813f219e598705640
 
 [requires]
 python_version = "3.8"
