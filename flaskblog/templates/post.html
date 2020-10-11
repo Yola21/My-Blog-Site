@@ -42,7 +42,7 @@
   
   <div class="card" style="margin-bottom: 20px;">
     <div class="card-body">
-      <h4 class="card-title"><a class="title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h4>
+      <h4 class="card-title">{{ post.title }}</h4>
       <small>Posted on {{ post.date_posted.strftime('%A, %d %B %Y %I:%M %p') }}</small>
       <br>
       <br>
