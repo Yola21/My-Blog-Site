@@ -1,4 +1,5 @@
 from flask import Flask
+# from flaskblog.create_tables import create_tables
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -30,4 +31,7 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(errors)
 
+    # app.cli.add_command(create_tables)
+
     return app
+ 
