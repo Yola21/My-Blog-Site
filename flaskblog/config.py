@@ -3,7 +3,8 @@ import os
 
 class Config:
     SECRET_KEY = '5791628bb0b13ce0c676dfde280ba245'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+    SQLALCHEMY_DATABASE_URI = 'postgres://xeykjimupguwvt:1b31143748662ee765c454a5840bb3c78b97624e0c91777a7ac2af71dc839b1d@ec2-23-20-70-32.compute-1.amazonaws.com:5432/da5ddmss3u4uie'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
     # SECRET_KEY = os.environ.get('SECRET_KEY')
     # SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     MAIL_SERVER = 'smtp.googlemail.com'
