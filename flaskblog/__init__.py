@@ -1,10 +1,12 @@
+# import click
 from flask import Flask
-# from flaskblog.create_tables import create_tables
+# from flask.cli import with_appcontext
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flaskblog.config import Config
+# from flaskblog.models import User, Post
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -31,6 +33,11 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(errors)
 
+    # @click.command(name='create_tables')
+    # @with_appcontext
+    # def create_tables():
+    #     db.create_all()
+    
     # app.cli.add_command(create_tables)
 
     return app
