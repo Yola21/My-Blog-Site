@@ -65,8 +65,10 @@ Project Structure
 
 ### 💻 Tech stack
 `Backend` : Python ,Flask <br>
-`Database` : SQLAlchemy <br>
+`Local Database` : SQLAlchemy <br>
 `Frontend` : CSS , HTML , Bootstrap, Javascript <br>
+`PaaS` : Heroku <br>
+`Database after deployment` : Postgresql <br>
 
 
 ### 🚀 Features
