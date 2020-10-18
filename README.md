@@ -4,7 +4,7 @@
 &emsp;[![](https://img.shields.io/badge/IDE-Visual_Studio_Code-red?style=for-the-badge&logo=visual-studio-code)](https://code.visualstudio.com/ "Visual Studio Code")
 
 
-<h4 align = 'center'> Find my app here - https://flask-my-blog-site.herokuapp.com/ </h4>
+<h4 align = 'center'> Find my app <a href='https://flask-my-blog-site.herokuapp.com/'> here </a> </h4>
 
 Project Structure
 --------
