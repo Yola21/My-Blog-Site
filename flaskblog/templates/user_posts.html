@@ -14,6 +14,11 @@
       box-shadow: 10px 15px 10px #4a4e69;
       width: 92%;
     }
+    
+    .card-title{
+      margin-bottom: 0 !important;
+      font-family: 'Bebas Neue', cursive;
+    }
 
     a{
       color: #003049;
@@ -63,9 +68,9 @@
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if posts.page == page_num %}
-          <a class="btn btn-warning mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-success mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
         {% else %}
-          <a class="btn btn-outline-warning mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-outline-success mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
         {% endif %}
       {% else %}
         ...

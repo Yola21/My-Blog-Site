@@ -2,10 +2,6 @@
 
 {% block head %}
   <style>
-    .container{
-      margin-bottom: 0.8rem;
-    }
-
     .card{
       border-radius: 25px;
       /* border-top-right-radius: 25px;
@@ -13,6 +9,11 @@
       background-color:  white; 
       box-shadow: 10px 15px 10px #4a4e69;
       width: 92%;
+    }
+
+    .card-title{
+      margin-bottom: 0 !important;
+      font-family: 'Bebas Neue', cursive;
     }
 
     a{
@@ -40,12 +41,12 @@
   <div class="container" style="display: flex;">
     <article class="media" style="display: flex; flex-direction: column;"> 
       <img class="rounded-circle article-img" style="margin-right: 5px;" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
-      <a href="{{ url_for('users.user_posts', username=post.author.username) }}" id="author">{{ post.author.username }}</a>
+      <a href="{{ url_for('users.user_posts', username=post.author.username) }}" id="author" style="margin: 0 auto;">{{ post.author.username }}</a>
     </article>
     
     <div class="card" style="margin-bottom: 20px;">
       <div class="card-body">
-        <h4 class="card-title"><a class="title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h4>
+        <h4 class="card-title" style="font-family: 'Sansita Swashed', cursive;"><a class="title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h4>
         <small>Posted on {{ post.date_posted.strftime('%A, %d %B %Y %I:%M %p') }}</small>
         <br>
         <br>
@@ -62,9 +63,9 @@
   {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
     {% if page_num %}
       {% if posts.page == page_num %}
-        <a class="btn btn-warning mb-4" href="{{ url_for('posts.allpost', page=page_num) }}">{{ page_num }}</a>
+        <a class="btn btn-success mb-4" href="{{ url_for('posts.allpost', page=page_num) }}">{{ page_num }}</a>
       {% else %}
-        <a class="btn btn-outline-warning mb-4" href="{{ url_for('posts.allpost', page=page_num) }}">{{ page_num }}</a>
+        <a class="btn btn-outline-success mb-4" href="{{ url_for('posts.allpost', page=page_num) }}">{{ page_num }}</a>
       {% endif %}
     {% else %}
       ...
