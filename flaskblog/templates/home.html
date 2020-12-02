@@ -1,15 +1,85 @@
 {% extends "layout.html" %}
 
+{% block style %}
+    <style>   
+        body{
+        z-index: 5;
+        }
+
+        body:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 1;
+        opacity: 0.5;
+        background-image: url('../static/images/bg.jpg');
+        /* background-repeat: no-repeat; */
+        /* background-position: 50% 0; */
+        background-size: cover;
+        }
+
+        .navbar{ 
+            background-color: #e2cfc4;
+            box-shadow: 0px 1px 10px black;
+        }
+
+        .container{
+            position: relative;
+            z-index: 5;
+        }
+        
+        .heading > h1{
+            font-size: 55px;
+            font-family: 'Alice', serif;
+            color: black;
+            text-shadow: 2px 2px #a44a3f;
+        }
+
+        .card-text{
+            text-align: justify;
+            color: rgb(43, 37, 37);
+            font-weight: 500;
+            font-size: 22px;
+        }
+
+        .container > button{
+            color: blue;
+            padding: 7px;
+            border:1px solid blue;
+            border-radius: 5px;
+            transition: 0.3s ease; 
+        }
+
+        .container > button:hover{
+            color: white;
+            background-color: blue;
+            /* padding: 5px; */
+        }
+    </style>
+{% endblock style %}
+
 {% block content %}
 <div class="container" style="margin: 12rem 4rem; text-align: center;">
-    <div class="card" style="border-bottom-left-radius: 50px; border-top-right-radius: 50px; background-color:  rgb(120, 137, 231); box-shadow: 15px 20px 10px darkslategray;">
-        <div class="card-body" style="color: darkgreen;">
-            <h1 class="card-title">WELCOME PEEPS!📝</h1>
-            <hr class="w3-border-grey" style="margin:auto; width:40%;">
-            <br>
-            <p class="card-text" id="para">Welcome to my <strong><em> Blog Site!</em></strong> Thanks so much for stopping by. I am glad to have you on board! This is gonna be so excited to have a such an audience like you. Let me tell you one thing, not only you can explore new readings but also will get updates for new technologies and all similar stuff. So what are you waiting for? Get In. Don't worry, your contribution will be appreciated.😄</p>
-            <button class="btn btn-primary"><a href="{{url_for('posts.allpost') }} " style="text-decoration: none; color: inherit;">Join Now &raquo;</a></button>
-        </div>
+    <div class="heading">
+        <h1>WELCOME PEEPS!📝</h1>
     </div>
+    <hr class="w3-border-grey" style="margin:auto; width:40%;">
+    <br>
+    <div class="content-body">
+        <p class="card-text" id="para">Welcome to my <strong><em> Blog Site!</em></strong> Thanks so much for stopping by. I am glad to have you on board! This is gonna be so excited to have a such an audience like you. Let me tell you one thing, not only you can explore new readings but also will get updates for new technologies and all similar stuff. So what are you waiting for? Get In. Don't worry, your contribution will be appreciated.😄</p>
+    </div>
+    <br>
+    <button><a href="{{url_for('posts.allpost') }} " style="text-decoration: none; color: inherit;">Join Now &raquo;</a></button>
+    
+    <!-- <div class="card" style="border-bottom-left-radius: 50px; border-top-right-radius: 50px; background-color:  #2ec4b6; box-shadow: 10px 15px 10px lightslategray;">
+        <div class="card-body" style="color: white;">
+            <br>
+        </div>
+    </div> -->
 </div>
 {% endblock content %}

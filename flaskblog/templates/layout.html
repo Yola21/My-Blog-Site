@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
 
     {% if title %}
         <title>Flask Blog - {{ title }}</title>
@@ -17,12 +20,45 @@
     {% endif %}
 
     {% block head %} {% endblock head %}
+
+    <style>
+      body{
+        background-color: #e5e5e5;
+        margin-top: 5rem;
+      }
+
+      .navigation-links{
+        color: white !important;
+        font-weight: 500;
+        background-color: rgb(183, 214, 252);
+        border-radius: 5px;
+        border-bottom: 4px solid blue;
+        margin: 5px;
+        background-size: 200% 200%;
+        background-image: linear-gradient( transparent 50%, rgb(79, 128, 233) 50%);
+        transition: background-position 300ms, color 300ms ease, border-color 300ms ease;      
+      }
+
+      .navigation-links:hover{
+        color: white;
+        background-image: linear-gradient( transparent 50%, #3a86ff 50%);
+        background-position: 0% 100%;
+      }
+
+      .navbar{
+        background-color: #c6def1; 
+        box-shadow: 0px 1px 10px black;
+      }
+    </style>
+
+    
+  {% block style %} {% endblock style %}
 </head>
-<body style="background: cornflowerblue;">
+<body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(120, 137, 231); box-shadow: 0px 5px 8px;">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/" style="color: rgb(7, 85, 173);">Blog Site</a>
+          <a class="navbar-brand mr-4" href="/" style="color: rgb(7, 85, 173); font-family: 'Lobster', cursive; font-weight: 800; font-size: 30px;">Share & Grow</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,13 +70,13 @@
             <div class="navbar-nav">
               <!-- <a class="nav-item nav-link" href="{{ url_for('main.about') }}"><i class="fa fa-info"></i> About</a> -->
               {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('posts.allpost') }}"><i class="fa fa-th"></i> Posts</a>
-                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="fa fa-plus"></i> New Post</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="fa fa-user"></i> Profile</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
+                <a class="nav-item nav-link navigation-links" href="{{ url_for('posts.allpost') }}"><i class="fa fa-th"></i> Posts</a>
+                <a class="nav-item nav-link navigation-links" href="{{ url_for('posts.new_post') }}"><i class="fa fa-plus"></i> New Post</a>
+                <a class="nav-item nav-link navigation-links" href="{{ url_for('users.account') }}"><i class="fa fa-user"></i> Profile</a>
+                <a class="nav-item nav-link navigation-links" href="{{ url_for('users.logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
               {% else %}
-                <a class="nav-link nav-item" href="{{ url_for('users.login') }}"><i class="fa fa-sign-in"></i> Login</a>
-                <a class="nav-link nav-item" href="{{ url_for('users.register') }}"><i class="fa fa-check-square-o"></i> Register</a>
+                <a class="nav-link nav-item navigation-links" href="{{ url_for('users.login') }}"> Login</a>
+                <a class="nav-link nav-item navigation-links" href="{{ url_for('users.register') }}"> Register</a>
               {% endif %}
             </div>
           </div>

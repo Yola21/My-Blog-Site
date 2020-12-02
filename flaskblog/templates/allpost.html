@@ -7,23 +7,24 @@
     }
 
     .card{
-      border-top-right-radius: 25px;
-      border-bottom-left-radius: 25px;
-      background-color:  rgb(120, 137, 231); 
-      box-shadow: 15px 20px 10px darkslategray;
+      border-radius: 25px;
+      /* border-top-right-radius: 25px;
+      border-bottom-left-radius: 25px; */
+      background-color:  white; 
+      box-shadow: 10px 15px 10px #4a4e69;
       width: 92%;
     }
 
     a{
-      color: navy;
+      color: #003049;
     }
 
     small{
-      color: ghostwhite;
+      color: lightslategray;
     }
 
     p{
-      color: blanchedalmond;
+      color: rgb(43, 37, 37);
     }
 
     /* i{
@@ -38,7 +39,7 @@
   {% for post in posts.items %}
   <div class="container" style="display: flex;">
     <article class="media" style="display: flex; flex-direction: column;"> 
-      <img class="rounded-circle article-img" style="margin-right: 8px;" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+      <img class="rounded-circle article-img" style="margin-right: 5px;" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
       <a href="{{ url_for('users.user_posts', username=post.author.username) }}" id="author">{{ post.author.username }}</a>
     </article>
     
