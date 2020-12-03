@@ -55,11 +55,13 @@ Project Structure
 
 ### 📷 Screenshots
 
-![HomePage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(211).png)
+![HomePage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(264).png)
 
-![ProfilePage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(218).png)
+![ProfilePage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(268).png)
 
-![All_PostPage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(212).png)
+![All_PostPage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(266).png)
+
+![All_PostPage](https://github.com/Yola21/My-Blog-Site/blob/main/Screenshots/Screenshot%20(267).png)
 
 
 
